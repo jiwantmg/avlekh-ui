@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{ appName }}    
   </div>
 </template>
 
@@ -11,8 +10,14 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
+  data: () => ({
+    appName: process.env.VUE_APP_SERVER_URL
+  }),
   components: {
     HelloWorld
+  },
+  mounted() {    
+    this.$logger.info('Home page is initiated');
   }
 }
 </script>
