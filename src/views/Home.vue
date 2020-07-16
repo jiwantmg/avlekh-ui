@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <p>changes by Mohan </p>
     {{ appName }}    
   </div>
 </template>
