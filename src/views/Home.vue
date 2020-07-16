@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    changes by jiwan
     {{ appName }}    
   </div>
 </template>
