@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    changes by dil
+    changes by dil and jiwan
     changes by jiwan
     <p>changes by Mohan </p>
     {{ appName }}    
