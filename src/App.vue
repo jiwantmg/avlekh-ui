@@ -1,13 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      <!-- This for commit4 -->
-    </div>
-    <router-view/>
+    <component :is="layout">
+      <router-view />
+    </component>      
   </div>
 </template>
+
+<script>
+import LoggedInLayout from '@/components/layout/Default'
+import EmptyLayout from '@/components/layout/Empty'
+
+export default { 
+  components: {
+    LoggedInLayout,
+    EmptyLayout
+  },
+  computed: {
+    layout() {
+      return this.$store.state.auth.isLoggedIn ? 'logged-in-layout' : 'empty-layout';    
+    }
+  }
+}
+</script>
 
 <style>
 #app {
