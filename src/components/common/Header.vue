@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+  <nav class="navbar navbar-expand-lg bg-primary">
+    <a class="navbar-brand" href="#">{{ title }}</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -27,8 +27,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    title() {
+      return this.$store.state.title;
+    }
+  },
+  created() {
+    
+  }
+};
 </script>
 
 <style>
+.bg-light {
+  background-color: var(--blue);
+}
 </style>

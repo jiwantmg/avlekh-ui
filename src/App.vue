@@ -9,7 +9,7 @@
 <script>
 import LoggedInLayout from '@/components/layout/Default'
 import EmptyLayout from '@/components/layout/Empty'
-
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 export default { 
   components: {
     LoggedInLayout,

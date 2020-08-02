@@ -20,7 +20,7 @@ export default {
     HelloWorld
   },
   mounted() {    
-    this.$logger.info('Home page is initiated');
+    this.$logger.info('Home page is initiated');   
   }
 }
 </script>
