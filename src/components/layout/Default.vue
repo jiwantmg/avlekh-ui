@@ -1,19 +1,31 @@
 <template>
   <div> 
       <Header />
-      <slot />
+      <div class="drawer-layout"> 
+        <SideBar />     
+        <div class="main-content">
+         <slot />
+        </div>
+      </div>      
   </div>
 </template>
 
 <script>
 import Header from '@/components/common/Header';
+import SideBar from '@/components/common/SideBar';
+
 export default {
     components: {
-        Header
+        Header,
+        SideBar
     }
 }
 </script>
 
 <style>
+.drawer-layout {
+    display: flex;
+    height: 95vh;
+}
 
 </style>

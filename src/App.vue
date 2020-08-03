@@ -10,6 +10,7 @@
 import LoggedInLayout from '@/components/layout/Default'
 import EmptyLayout from '@/components/layout/Empty'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 export default { 
   components: {
     LoggedInLayout,
@@ -24,24 +25,9 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+html {
+  background: var(--global-bg-color);
+  font-family: var(--global-font-family);
+  color: var(--global-text-color);
 }
 </style>

@@ -18,9 +18,11 @@ const appInitialAuthState = () => {
 export default new Vuex.Store({
   state: {
     auth: appInitialAuthState(),
-    title: 'AvlekhUI'
+    title: 'AvlekhUI',
+    isDrawerOpen: true
   },
   mutations: {
+    // vuex
     setLogin(state, user){
       state.auth.user = user;
       state.auth.isLoggedIn = true;
