@@ -28,6 +28,6 @@ export default {
 html {
   background: var(--global-bg-color);
   font-family: var(--global-font-family);
-  color: var(--global-text-color);
+  color: var(--global-text-color);  
 }
 </style>

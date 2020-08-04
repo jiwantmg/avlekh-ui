@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as userService from '@/api/user.service';
 import router from '../router';
+import tasks from './modules/tasks';
+import dashboard from './modules/dashboard';
 
 Vue.use(Vuex)
 
@@ -43,5 +45,7 @@ export default new Vuex.Store({
     }
   },
   modules: {
+    tasks,
+    dashboard
   }
 })

@@ -3,7 +3,7 @@
       <Header />
       <div class="drawer-layout"> 
         <SideBar />     
-        <div class="main-content">
+        <div class="main-content px-2 py-3">
          <slot />
         </div>
       </div>      
@@ -26,6 +26,10 @@ export default {
 .drawer-layout {
     display: flex;
     height: 95vh;
+}
+
+.main-content {
+  width: 100%;
 }
 
 </style>
