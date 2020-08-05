@@ -5,6 +5,7 @@
         <i class="fa fa-bars" aria-hidden="true"></i>
       </a>
       <a class="navbar-brand" href="#">Avlekh</a>
+      <input type="checkbox" checked data-toggle="toggle" @click="changeTheme()">
     </nav>   
   </header>
 </template>
@@ -25,12 +26,24 @@ export default {
       set(val) {
         this.$store.state.isDrawerOpen = val;
       }
+    },
+    theme: {
+      get() {
+        return this.$store.state.theme;
+      },
+      set(val) {        
+        this.$store.state.theme = val;
+      }
     }
   },
   methods: {
     toggleDrawer() {
       this.isDrawerOpen = !this.isDrawerOpen;
     },
+    changeTheme() {              
+      let newTheme = this.theme === 'light' ? 'dark':'light';     
+      this.theme = newTheme;      
+    }
   },
   created() {},
 };

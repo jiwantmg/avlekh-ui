@@ -13,7 +13,7 @@ const appInitialAuthState = () => {
   
   return {
     isLoggedIn: isLoggedIn,
-    user: user
+    user: user,    
   }
 }
 
@@ -21,6 +21,7 @@ export default new Vuex.Store({
   state: {
     auth: appInitialAuthState(),
     title: 'AvlekhUI',
+    theme: 'light',
     isDrawerOpen: true
   },
   mutations: {
