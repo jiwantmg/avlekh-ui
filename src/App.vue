@@ -10,8 +10,9 @@
 import LoggedInLayout from "@/components/layout/Default";
 import EmptyLayout from "@/components/layout/Empty";
 import "../node_modules/font-awesome/css/font-awesome.min.css";
-const lightThemes = () => import("@/assets/scss/light.scss");
-const darkThemes = () => import("@/assets/scss/dark.scss");
+import "./assets/css/style.css";
+//const darkThemes = () => import('./DarkTheme.vue');
+const lightThemes = () => import("./LighTheme.vue");
 export default {
   components: {
     LoggedInLayout,
@@ -31,7 +32,9 @@ export default {
     lightThemes();
   },
   watch: {
-    
+    theme: function (newVal) {
+
+    },
   },
 };
 </script>

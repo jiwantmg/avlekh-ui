@@ -1,12 +1,12 @@
 <template>
   <div class="summary-graph-wrapper">
     <div class="graph-type-navigator">
-      <button class="btn btn-primary" type="submit" @click="changeChart('lineChart')" >Line</button>
+      <button class="btn btn-primary" type="submit" @click="changeChart('lineChart')">Line</button>
       <button class="btn btn-primary" type="submit" @click="changeChart('barChart')">Bar</button>
-      <button class="btn btn-primary" type="submit" @click="changeChart('pieChart')">Pie Chart</button>      
+      <button class="btn btn-primary" type="submit" @click="changeChart('pieChart')">Pie Chart</button>
     </div>
     <div class="task-summary-graph" v-if="datacollection">
-      <component :is="chartType" :chart-data="datacollection"></component>      
+      <component :is="chartType" :chart-data="datacollection" :options="options"></component>
     </div>
   </div>
 </template>
@@ -17,14 +17,18 @@ import BarChart from "../reports/BarChart.js";
 import PieChart from "../reports/PieChart.js";
 export default {
   components: {
-    'lineChart':LineChart,
-    'barChart':BarChart,
-    'pieChart': PieChart
+    lineChart: LineChart,
+    barChart: BarChart,
+    pieChart: PieChart,
   },
   data() {
     return {
       datacollection: null,
-      chartType: 'lineChart'
+      chartType: "lineChart",
+      options: {        
+        responsive: true,
+        maintainAspectRatio: false,
+      },
     };
   },
   mounted() {
@@ -53,7 +57,7 @@ export default {
     },
     changeChart(reportType) {
       this.chartType = reportType;
-    }
+    },
   },
 };
 </script>
@@ -63,5 +67,11 @@ export default {
   background-color: lightgray;
   grid-column-start: 1;
   grid-column-end: 4;
+}
+.task-summary-graph {
+  height: 100%;
+}
+.task-summary-graph > div {
+  height: 100%;
 }
 </style>

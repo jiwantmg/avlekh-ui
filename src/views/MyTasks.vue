@@ -1,5 +1,5 @@
 <template>
-  <div class="mytasks-container">
+  <div class="mytasks-container bg-whitesmoke p-2 full-height-m">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
         <a
@@ -28,9 +28,7 @@
         >Completed Tasks</a>
       </li>
     </ul>
-    <div>
-        <component :is="selectedComponet" />
-    </div>
+    <component :is="selectedComponet" />
   </div>
 </template>
 
@@ -55,4 +53,8 @@ export default {
 </script>
 
 <style>
+.mytasks-container {
+  display: flex;
+  flex-direction: column;
+}
 </style>
