@@ -4,6 +4,7 @@ import * as userService from '@/api/user.service';
 import router from '../router';
 import tasks from './modules/tasks';
 import dashboard from './modules/dashboard';
+import absent from './modules/absent';
 
 Vue.use(Vuex)
 
@@ -47,6 +48,7 @@ export default new Vuex.Store({
   },
   modules: {
     tasks,
-    dashboard
+    dashboard,
+    absent
   }
 })

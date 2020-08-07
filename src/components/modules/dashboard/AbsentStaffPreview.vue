@@ -1,17 +1,26 @@
 <template>
   <div class="card text-white bg-success">
-    <div class="card-header">Header</div>
+    <div class="card-header">{{title}}</div>
     <div class="card-body">
-      <h5 class="card-title">Primary card title</h5>
-      <p
-        class="card-text"
-      >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
+<table>
+  <tr v-for=" data in datas" :key="data.id">
+    <th>{{data.title}}</th>
+    <th>{{data.value}}</th>
+   
+  </tr>
+</table>
+  </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed : {
+    datas() {
+      return this.$store.state.absent.absent.datas;
+    }
+  }
+};
 </script>
 
 <style>
