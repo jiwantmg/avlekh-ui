@@ -10,22 +10,28 @@
               <div class="form-group">
                 <label for="username" class="text-info">Username:</label>
                 <br />
-                <input type="text" name="username" id="username" class="form-control" />
+                <input type="text" name="username" id="username" class="form-control" v-model="form.username"/>
               </div>
               <div class="form-group">
                 <label for="password" class="text-info">Password:</label>
                 <br />
-                <input type="text" name="password" id="password" class="form-control" />
+                <input type="text" name="password" id="password" class="form-control" v-model="form.password"/>
               </div>
               <div class="form-group">
                 <label for="remember-me" class="text-info">
                   <span>Remember me</span>
                   <span>
-                    <input id="remember-me" name="remember-me" type="checkbox" />
+                    <input id="remember-me" name="remember-me" type="checkbox" v-model="form.rememberMe"/>
                   </span>
                 </label>
                 <br />
-                <input type="button" name="submit" class="btn btn-info btn-md" value="submit" @click="login()"/>
+                <input
+                  type="button"
+                  name="submit"
+                  class="btn btn-info btn-md"
+                  value="submit"
+                  @click="login()"
+                />
               </div>
               <div id="register-link" class="text-right">
                 <a href="#" class="text-info">Register here</a>
@@ -40,11 +46,18 @@
 
 <script>
 export default {
-    methods: {
-        login() {
-            this.$store.dispatch('loginAsync');
-        }
+  data: () => ({
+    form: {
+      username: '',
+      password: '',
+      rememberMe: ''
     }
+  }),
+  methods: {    
+    login() {       
+      this.$store.dispatch('loginAsync', this.form);
+    }
+  }
 };
 </script>
 

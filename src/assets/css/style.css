@@ -1,0 +1,27 @@
+.bg-whitesmoke {
+    background-color: whitesmoke;
+}
+
+.full-height-m {
+    min-height: 100%;
+}
+
+.full-height  {
+    height: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.round-2 {
+    border-radius: 15px;
+}
+
+/* serial no css */
+.sn-no {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
