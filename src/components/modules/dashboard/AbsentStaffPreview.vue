@@ -1,6 +1,6 @@
 <template>
   <div class="card text-white bg-success">
-    <div class="card-header">{{title}}</div>
+    <div class="card-header">{{"Absent Staff"}}</div>
     <div class="card-body">
 <table>
   <tr v-for=" data in datas" :key="data.id">
@@ -24,4 +24,5 @@ export default {
 </script>
 
 <style>
+
 </style>
