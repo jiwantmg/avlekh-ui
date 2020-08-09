@@ -1,15 +1,13 @@
 <template>
   <div>
-      staff view
+      <h5>Staff List</h5>
+      <slot />
   </div>
 </template>
 
 <script>
-export default {
 
-}
 </script>
 
 <style>
-
-</style>
+</style> 
