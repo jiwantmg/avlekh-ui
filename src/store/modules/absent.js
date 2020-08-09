@@ -1,5 +1,5 @@
 export const state = () => ({
-    absent:{
+    absent: {
         title: 'Absent Staff',
         datas: [
             { id: 1, tittle: 'Total Absent', value: 'Mithun'},

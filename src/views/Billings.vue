@@ -1,6 +1,6 @@
 <template>
   <div>
-      Customers
+      Billing
   </div>
 </template>
 
