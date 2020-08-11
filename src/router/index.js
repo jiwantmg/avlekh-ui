@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Dashboard from '../views/Dashboard.vue'
 import { tasksRouting } from './tasks';
+import { staffRouting } from './staff';
 
 Vue.use(VueRouter)
 
@@ -10,12 +11,6 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Dashboard',
     component: Dashboard    
-  },
-  
-  {
-    path: '/staffs',
-    name: 'Staff',
-    component: () => import('../views/Staff.vue')
   },
   {
     path: '/customers',
@@ -40,7 +35,8 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes: [
     ...routes,
-    ...tasksRouting
+    ...tasksRouting,
+    ...staffRouting
   ]
 });
 

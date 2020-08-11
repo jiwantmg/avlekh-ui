@@ -47,8 +47,8 @@ export default {
         url: "/staffs",
         hasChild: true,
         children: [
-          { id: 1, title: "New Staff", url: "/tasks/register" },
-          { id: 2, title: "View All", url: "/tasks/all" }          
+          { id: 1, title: "New Staff", url: "/staffs/register" },
+          { id: 2, title: "View All", url: "/staffs/all" }          
         ],
       },
       { id: 5, title: "Customers", url: "/customers", hasChild: false },
