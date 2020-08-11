@@ -1,4 +1,5 @@
-<template>
+
+``<template>
   <div class="border p-2">
     <h5 class="font-weight-bold">Register Tasks</h5>
     <form>
@@ -77,4 +78,6 @@ export default {
 </script>
 
 <style>
+
+
 </style> 
