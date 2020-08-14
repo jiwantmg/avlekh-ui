@@ -6,6 +6,7 @@ import tasks from './modules/tasks';
 import dashboard from './modules/dashboard';
 import absent from './modules/absent';
 import customers from './modules/customers';
+import staffs from './modules/staffs';
 
 Vue.use(Vuex)
 
@@ -51,6 +52,7 @@ export default new Vuex.Store({
     tasks,
     dashboard,
     absent,
-    customers
+    customers,
+    staffs
   }
 })

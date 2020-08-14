@@ -1,4 +1,4 @@
-import { customerList, addNewCustomer } from './datas';
+import * as dataService from './datas';
 
 export function configureFakeBackend() {
     let users = [
@@ -47,12 +47,30 @@ export function configureFakeBackend() {
 
                 return;
             }  else if(url.endsWith('/api/customers') && opts.method === 'GET'){
-                resolve(customerList().customers);
+                resolve(dataService.customerList().customers);
             } else if( url.endsWith('/api/customers') && opts.method === 'POST') {  
                 let customer = opts.body;
-                customer.id = customerList().customers.length + 1;          
-                addNewCustomer(customer);
+                let custoemrsList = dataService.customerList().customers;
+                if(custoemrsList) {
+                    customer.id = dataService.customerList().customers.length + 1;          
+                }else{
+                    customer.id = 1;
+                }            
+                dataService.addNewCustomer(customer);
                 resolve({ok: true});
+            } else if( url.endsWith('/api/staffs') && opts.method === 'POST') {  
+                let staff = opts.body;
+                let staffsList = dataService.staffList().staffs;
+                if(staffsList) {
+                    staff.id =dataService.staffList().staffs.length + 1;          
+                }else{
+                    staff.id = 1;
+                }            
+                dataService.addNewStaff(staff);
+                resolve({ok: true});
+            }else if(url.endsWith('/api/staffs') && opts.method === 'GET'){
+                console.log("Getting staff lists");
+                resolve(dataService.staffList().staffs);
             }
             else {
                 realFetch(url, opts);

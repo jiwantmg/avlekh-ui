@@ -71,8 +71,7 @@ export default {
     },
   }),
   methods: {
-    saveStaff() {
-     // alert('save staff?')
+    saveStaff() {     
       saveStaff(this.form);
     },
   },

@@ -5,7 +5,9 @@
     <form>
       <div class="form-group">
         <label class="font-weight-bold" for="customername">Customer Name</label>
-        <input class="form-control" id="customername" v-model="form.customer_name"/>
+        <select class="form-control" v-model="form.customer">
+          <option v-for="customer in customers" :key="customer.id" :value="customer.id">{{ customer.fullName }}</option>
+        </select>        
       </div>
       <div class="form-row">
         <div class="col-md-6">
@@ -17,7 +19,9 @@
         <div class="col-md-6">
           <div class="form-group">
             <label class="font-weight-bold" for="priority">Priority</label>
-            <input type="text" class="form-control" id="priority" v-model="form.priority"/>
+            <select class="form-control" v-model="form.priority">
+              <option v-for="priority in priorities" :key="priority">{{ priority }}</option>
+            </select>            
           </div>
         </div>
         <div class="col-md-6">
@@ -37,9 +41,7 @@
       <div class="form-group">
         <label class="font-weight-bold" for="assignedto">Assigned To (Optional)</label>
         <select class="form-control" v-model="form.assigned_to">
-          <option value="1">Jiwan Kumar Tamang</option>
-          <option value="2">Mithun karmacharya</option>
-          <option value="3">Mohan mohan</option>
+          <option v-for="staff in staffs" :key="staff.id">{{ staff.fullName }}</option>          
         </select>
       </div>
 
@@ -57,10 +59,11 @@
 
 <script>
 import { saveTasks } from '@/api/task.service';
+import { mapState } from 'vuex';
 export default {
   data: () => ({
     form: {
-        customer_name: '',
+        customer: '',
         task: '',
         priority: '',
         registered_on: '',
@@ -68,12 +71,17 @@ export default {
         assigned_to: '',
         possible_solution: ''
     },
+    priorities: [1, 2, 3, 4, 5]
   }),
   methods: {
     saveTask() {
       saveTasks(this.form);
     },
   },
+  computed: mapState({
+    customers: state => state.customers.list,
+    staffs: state => state.staffs.list
+  })
 };
 </script>
 

@@ -10,6 +10,9 @@
 export default {
   components : {
     StaffList
+  },
+  mounted() {
+     this.$store.dispatch("staffs/getAllStaffsAsync");
   }
 }
 </script>

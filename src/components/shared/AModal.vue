@@ -1,6 +1,6 @@
 <template>
   <!-- Modal -->
-  <div>
+  <div @click="closeModal()">
     <div
       class="modal fade show"      
       id="exampleModal"
@@ -9,7 +9,7 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"      
     >
-      <div class="modal-dialog modal-xl" role="document" ref="avDialog">
+      <div class="modal-dialog modal-xl" role="document" ref="avDialog"  @click="closeModal($event)">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -31,8 +31,10 @@
 export default {
    props: ["showModal","options"],
    methods: {
-       closeModal() {
-           this.$emit('onClose');
+       closeModal(event) {
+          console.log(event);
+          if(event) return event.stopPropagation();
+          this.$emit('onClose');
        }
    },
    mounted() {
@@ -51,6 +53,9 @@ export default {
 </script>
 
 <style>
+.exampleModal {
+  display: flex !important;
+}
 .modal-backdrop {
     position: fixed;
     display: block;
