@@ -1,3 +1,5 @@
+import * as taskService from '@/api/task.service';
+
 export const state = () => ({
     taskSummary: {
         title: 'Tasks Summary',
@@ -7,9 +9,30 @@ export const state = () => ({
             { id: 3, title: 'Pending Tasks', value: 30 },
             { id: 4, title: 'Deadline Crossed', value: 10 },
         ]
-    }
+    },
+    list:[]
 });
 
+const mutations = {
+    setTask(state, task) {
+        state.list = task;
+    }
+}
+
+const actions = {
+    getAllTaskAsync({ commit }) {        
+        taskService.getAllTaskAsync().then(
+            res => {
+                commit('setTask', res);
+            }            
+        );
+    }
+}
+
+
 export default {
-    state
+    namespaced: true,
+    state,
+    actions,
+    mutations
 }

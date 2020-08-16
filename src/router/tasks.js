@@ -14,5 +14,11 @@ export const tasksRouting = [
         name: 'MyTasks',
         component: () => import('../views/MyTasks.vue')
     },
+    
+    {
+        path: '/tasks/alltask',
+        name: 'TaskList',
+        component: () => import('../views/tasks/alltask.vue')
+    },
 
 ];

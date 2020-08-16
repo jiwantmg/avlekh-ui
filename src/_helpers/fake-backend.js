@@ -71,6 +71,20 @@ export function configureFakeBackend() {
             }else if(url.endsWith('/api/staffs') && opts.method === 'GET'){
                 console.log("Getting staff lists");
                 resolve(dataService.staffList().staffs);
+            }else if( url.endsWith('/api/task') && opts.method === 'POST') {  
+                let task = opts.body;
+                let taskList = dataService.taskList().task;
+                if(taskList) {
+                    task.id =dataService.taskList().task.length + 1;          
+                }else{
+                    task.id = 1;
+                }
+                console.log(task);            
+                dataService.addNewTask(task);
+                resolve({ok: true});
+            }else if(url.endsWith('/api/task') && opts.method === 'GET'){
+                console.log("Getting task lists");
+                resolve(dataService.taskList().task);
             }
             else {
                 realFetch(url, opts);

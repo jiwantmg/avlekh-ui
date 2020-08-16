@@ -41,7 +41,7 @@
       <div class="form-group">
         <label class="font-weight-bold" for="assignedto">Assigned To (Optional)</label>
         <select class="form-control" v-model="form.assigned_to">
-          <option v-for="staff in staffs" :key="staff.id">{{ staff.fullName }}</option>          
+          <option v-for="staff in staffs" :key="staff.id" :value="staff.id">{{ staff.fullName }}</option>          
         </select>
       </div>
 

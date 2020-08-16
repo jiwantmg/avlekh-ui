@@ -32,6 +32,20 @@ export const addNewStaff = staff => {
 
 // ********** Staff section  end *********
 
+// ********** Task section  start *********
+export const taskList = () => ({
+    task: dataLists.task
+});
+
+export const addNewTask = task => {
+    if(!dataLists.task) {
+        dataLists.task = [];
+    }
+    dataLists.task.push(task);
+    saveSyncData();
+};
+
+// ********** Task section  end *********
 
 
 function saveSyncData() {

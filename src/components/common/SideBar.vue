@@ -37,7 +37,7 @@ export default {
         hasChild: true,
         children: [
           { id: 1, title: "Registers", url: "/tasks/register" },
-          { id: 2, title: "View All", url: "/tasks/all" },
+          { id: 2, title: "View All", url: "/tasks/alltask" },
           { id: 3, title: "Canceled Tasks", url: "/tasks/canceled" },
         ],
       },
