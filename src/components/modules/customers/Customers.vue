@@ -24,7 +24,7 @@
 </template>
 
 <script>
-export default {
+export default {  
     computed: {
         customers() {
             return this.$store.state.customers.list

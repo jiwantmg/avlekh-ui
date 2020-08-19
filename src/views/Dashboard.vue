@@ -29,7 +29,7 @@ export default {
     TasksSummaryGraph
   },
   mounted() {    
-    this.$logger.info('Home page is initiated');   
+    this.$store.dispatch('absent/getAbsentStaffSummaryAsync');
   }
 }
 </script>
