@@ -10,22 +10,42 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Dashboard',
-    component: Dashboard    
+    component: Dashboard,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/customers',
     name: 'Customers',
-    component: () => import('../views/Customers.vue')
+    component: () => import('../views/Customers.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/billings',
     name: 'Billings',
-    component: () => import('../views/Billings.vue')
+    component: () => import('../views/Billings.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import('../views/auth/Login.vue')
+    component: () => import('../views/auth/Login.vue'),
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: '/not-found',
+    name: 'NotFound',
+    component: () => import('../views/NotFound.vue'),
+    meta: {
+      requiresAuth: false
+    }
   }
 ]
 
@@ -39,5 +59,36 @@ const router = new VueRouter({
     ...staffRouting
   ]
 });
+
+router.beforeEach((to, from, next) => { 
+  if (to.matched.some(record => record.meta.requiresAuth)) {    
+    if (localStorage.getItem('jwt') == null) {      
+      next({
+        path: '/login',
+        params: { nextUrl: to.fullPath }
+      })
+    } else {
+      let user = JSON.parse(localStorage.getItem('user'));
+      console.log("User Detail",user);
+      // if (to.matched.some(record => record.meta.is_admin)) {
+      //   if (user.is_admin == 1) {
+      //     next()
+      //   }
+      //   else {
+      //     next({ name: 'Customer' })
+      //   }
+      // } else {
+      //   next()
+      // }
+    }
+  }else if(to.matched.length == 0) {
+    console.log("Not found id executed");
+    next({
+      path: '/not-found'
+    })
+  }else{    
+    next();
+  }
+})
 
 export default router

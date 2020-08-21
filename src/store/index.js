@@ -35,10 +35,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    loginAsync({ commit }, user) {   
-      console.log("dsfsd"); 
+    loginAsync({ commit }, user) {         
       userService.loginUser(user).then(
-        success => {          
+        res => {          
+          localStorage.setItem('jwt', res.token);
           commit('setLogin', user);
           router.push('/');
         },

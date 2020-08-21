@@ -10,7 +10,7 @@
               <div class="form-group">
                 <label for="username" class="text-info">Username:</label>
                 <br />
-                <input type="text" name="username" id="username" class="form-control" v-model="form.username"/>
+                <input type="text" name="username" id="username" class="form-control" v-model="form.email"/>
               </div>
               <div class="form-group">
                 <label for="password" class="text-info">Password:</label>
@@ -48,7 +48,7 @@
 export default {
   data: () => ({
     form: {
-      username: '',
+      email: '',
       password: '',
       rememberMe: ''
     }
