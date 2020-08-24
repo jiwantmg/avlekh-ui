@@ -12,7 +12,7 @@ export default {
     TaskList
   },
   mounted() {
-     this.$store.dispatch("tasks/getAllTaskAsync");
+     this.$store.dispatch("tasks/getAllTaskSummaryAsync");
   }
 }
 </script>

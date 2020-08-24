@@ -1,12 +1,12 @@
 
-``<template>
+<template>
   <div class="border p-2">
     <h5 class="font-weight-bold">Register Tasks</h5>
     <form>
       <div class="form-group">
         <label class="font-weight-bold" for="customername">Customer Name</label>
         <select class="form-control" v-model="form.customer">
-          <option v-for="customer in customers" :key="customer.id" :value="customer.id">{{ customer.fullName }}</option>
+          <option v-for="customer in customers" :key="customer.id" :value="customer.id">{{ customer.name }}</option>
         </select>        
       </div>
       <div class="form-row">
@@ -41,7 +41,7 @@
       <div class="form-group">
         <label class="font-weight-bold" for="assignedto">Assigned To (Optional)</label>
         <select class="form-control" v-model="form.assigned_to">
-          <option v-for="staff in staffs" :key="staff.id" :value="staff.id">{{ staff.fullName }}</option>          
+          <option v-for="staff in staffs" :key="staff.id" :value="staff.id">{{ staff.name }}</option>          
         </select>
       </div>
 
@@ -74,8 +74,14 @@ export default {
     priorities: [1, 2, 3, 4, 5]
   }),
   methods: {
-    saveTask() {
-      saveTasks(this.form);
+    saveTask() {      
+      saveTasks(this.form).then(
+        res => {
+          this.$router.push({
+            name: 'TaskList'
+          })
+        }
+      )
     },
   },
   computed: mapState({

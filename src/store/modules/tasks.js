@@ -10,23 +10,39 @@ export const state = () => ({
             { id: 4, title: 'Deadline Crossed', value: 10 },
         ]
     },
-    list:[]
+    list:{
+        assignedTasks: [],
+        completedTasks: [],
+        all: []
+    }
 });
 
 const mutations = {
-    setTask(state, task) {
-        state.list = task;
+    setTask(state, data) {
+        state.list.all = data.data;
+    },
+    setMyTasks(state, mytasks) {
+        state.list.assignedTasks = mytasks.data.filter(task => !task.status);
+        state.list.completedTasks = mytasks.data.filter(task => task.status);
     }
 }
 
 const actions = {
-    getAllTaskAsync({ commit }) {        
+    getAllTaskSummaryAsync({ commit }) {        
         taskService.getAllTaskAsync().then(
             res => {
                 commit('setTask', res);
             }            
         );
-    }
+    },
+    getMyTasksAsync({commit}) {
+        taskService.getMyTasksAsync().then(
+            res => {
+                console.log(res);
+                commit('setMyTasks', res);
+            }
+        )
+    }   
 }
 
 

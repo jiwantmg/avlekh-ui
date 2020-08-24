@@ -14,7 +14,7 @@ export const getAllCustomersAsync = function() {
         fetch(`${process.env.VUE_APP_SERVER_URL}/customers`, {
             method: 'GET'
         }).then(
-            res => resolve(res)
+            res => resolve(res.json())
         )
     });
 }

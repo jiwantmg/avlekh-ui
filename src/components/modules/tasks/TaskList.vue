@@ -17,7 +17,7 @@
           <tr v-for="task in tasks" :key="task.id">
               <td>{{ task.id }}</td>
               <td>{{ task.customer }}</td>
-              <td>{{ task.task }}</td>
+              <td>{{ task.title }}</td>
               <td>{{ task.priority }}</td>
               <td>{{ task.registered_on }}</td>
               <td>{{ task.deadline }}</td>
@@ -37,7 +37,7 @@ export default {
         tasks() {
           // console.log(this.$store.state.customers.list);
           //   console.log(this.$store.state.staffs.list);
-            return this.$store.state.tasks.list;
+            return this.$store.state.tasks.list.all;
             
         },
         // customer(){

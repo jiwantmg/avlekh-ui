@@ -39,6 +39,7 @@ export default new Vuex.Store({
       userService.loginUser(user).then(
         res => {          
           localStorage.setItem('jwt', res.token);
+          localStorage.setItem('user', JSON.stringify({user: 'jiwan'}))
           commit('setLogin', user);
           router.push('/');
         },
@@ -46,6 +47,10 @@ export default new Vuex.Store({
           console.error(error);
         }
       );
+    },
+    logout({ commit }) {
+      localStorage.removeItem('jwt');
+      localStorage.removeItem('user');     
     }
   },
   modules: {

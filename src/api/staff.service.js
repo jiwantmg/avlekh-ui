@@ -14,7 +14,7 @@ export const getAllStaffsAsync = function() {
         fetch(`${process.env.VUE_APP_SERVER_URL}/staffs`, {
             method: 'GET'
         }).then(
-            res => resolve(res)
+            res => resolve(res.json())
         )
     });
 }

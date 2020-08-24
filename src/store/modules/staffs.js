@@ -5,8 +5,8 @@ const state = () => ({
 });
 
 const mutations = {
-    setStaffs(state, customers) {
-        state.list = customers;
+    setStaffs(state, data) {
+        state.list = data.data;
     }
 }
 

@@ -13,7 +13,7 @@
       <tbody>
           <tr v-for="customer in customers" :key="customer.id">
               <td>{{ customer.id }}</td>
-              <td>{{ customer.fullName }}</td>
+              <td>{{ customer.name }}</td>
               <td>{{ customer.email }}</td>
               <td>{{ customer.phoneNo }}</td>
               <td>{{ customer.address }}</td>

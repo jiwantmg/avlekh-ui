@@ -48,6 +48,9 @@ export default {
         activeTab: function(val) {
             this.selectedComponet = val == 0 ? 'assigned': 'completed';
         }
+    },
+    mounted() {
+      this.$store.dispatch('tasks/getMyTasksAsync');
     }
 };
 </script>

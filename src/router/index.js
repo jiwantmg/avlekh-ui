@@ -67,19 +67,8 @@ router.beforeEach((to, from, next) => {
         path: '/login',
         params: { nextUrl: to.fullPath }
       })
-    } else {
-      let user = JSON.parse(localStorage.getItem('user'));
-      console.log("User Detail",user);
-      // if (to.matched.some(record => record.meta.is_admin)) {
-      //   if (user.is_admin == 1) {
-      //     next()
-      //   }
-      //   else {
-      //     next({ name: 'Customer' })
-      //   }
-      // } else {
-      //   next()
-      // }
+    } else {      
+      next();
     }
   }else if(to.matched.length == 0) {
     console.log("Not found id executed");

@@ -15,19 +15,13 @@
 
 <script>
 import TaskPreviewRow from "@/components/TaskPreviewRow";
-
+import { mapState } from 'vuex';
 export default {
   components: {
     TaskPreviewRow,
   },
-  data: () => ({
-    mytasks: [
-      { id: 1, title: 'Tasks Title', status: 'completed', description: 'Task description', deadline: '2020-5-6', track_no: '8765432', created_at: '2020-5-1' },
-      { id: 2, title: 'Tasks Title', status: 'completed', description: 'Task description', deadline: '2020-5-6', track_no: '8765432', created_at: '2020-5-1' },
-      { id: 3, title: 'Tasks Title', status: 'completed', description: 'Task description', deadline: '2020-5-6', track_no: '8765432', created_at: '2020-5-1' },
-      { id: 4, title: 'Tasks Title', status: 'completed', description: 'Task description', deadline: '2020-5-6', track_no: '8765432', created_at: '2020-5-1' },
-      { id: 5, title: 'Tasks Title', status: 'completed', description: 'Task description', deadline: '2020-5-6', track_no: '8765432', created_at: '2020-5-1' }     
-    ]
+   computed: mapState({
+    mytasks: state => state.tasks.list.completedTasks
   })
 };
 </script>

@@ -6,6 +6,7 @@
       </a>
       <a class="navbar-brand" href="#">Avlekh</a>
       <input type="checkbox" checked data-toggle="toggle" @click="changeTheme()">
+      <a class="nav-item ml-auto btn-nav" @click="logout()">Logout</a>
     </nav>   
   </header>
 </template>
@@ -43,7 +44,10 @@ export default {
     changeTheme() {              
       let newTheme = this.theme === 'light' ? 'dark':'light';     
       this.theme = newTheme;      
-    }
+    },
+    logout() {
+      this.$store.dispatch('logout').then(()=> location.reload());
+    }  
   },
   created() {},
 };
@@ -69,4 +73,18 @@ header {
   color: gray !important;
 }
 
+.btn-nav {
+  color: white !important;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  padding: 5px;
+}
+.btn-nav:hover {
+  background-color: gray;
+}
+.btn-nav:active {
+  background-color: white;
+  color: black !important;
+}
 </style>
