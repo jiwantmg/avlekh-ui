@@ -1,12 +1,20 @@
 import * as staffService from '@/api/staff.service';
 
 const state = () => ({
-    list: []
+    list: [],
+    hahNext: false,
+    hasPrevious: false,
+    pageIndex: 0,
+    pageSize: 0
 });
 
 const mutations = {
-    setStaffs(state, customers) {
-        state.list = customers;
+    setStaffs(state, res) {
+        state.list = res.data;
+        state.hahNext = res.hahNext;
+        state.hasPrevious = res.hasPrevious;
+        state.pageIndex = res.pageIndex;
+        state.pageSize = res.pageSize;
     }
 }
 

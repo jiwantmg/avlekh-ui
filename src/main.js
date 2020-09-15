@@ -7,7 +7,7 @@ import { configureFakeBackend } from './_helpers/fake-backend';
 
 Vue.config.productionTip = false
 initAppCore();
-configureFakeBackend();
+// configureFakeBackend();
 
 // create new app v1.0.0
 // this is another project v2.0.0

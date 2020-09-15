@@ -72,7 +72,14 @@ export default {
   }),
   methods: {
     saveStaff() {     
-      saveStaff(this.form);
+      saveStaff(this.form).then(
+        res => {
+          console.log("Customer saved");
+        },
+        err => {
+          console.error("Customer can not saved")
+        }
+      )
     },
   },
 };

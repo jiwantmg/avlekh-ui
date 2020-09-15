@@ -64,7 +64,7 @@
           <div class="form-group">
             <label class="font-weight-bold" for="user-name">User Name</label>
             <br />
-            <input class="text" placeholder="User Name" id="user-name" v-model="form.user.userName" />
+            <input class="text" placeholder="User Name" id="user-name" v-model="form.user.username" />
           </div>
           <div class="form-group">
             <label class="font-weight-bold" for="password">password</label>
@@ -91,7 +91,7 @@ export default {
       phoneNo: "",
       address: "",
       user: {
-        userName: '',
+        username: '',
         password: ''
       }      
     },
