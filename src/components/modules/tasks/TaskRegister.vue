@@ -5,7 +5,7 @@
     <form>
       <div class="form-group">
         <label class="font-weight-bold" for="customername">Customer Name</label>
-        <select class="form-control" v-model="form.customer">
+        <select class="form-control" v-model="form.customerId">
           <option v-for="customer in customers" :key="customer.id" :value="customer.id">{{ customer.fullName }}</option>
         </select>        
       </div>
@@ -40,8 +40,8 @@
 
       <div class="form-group">
         <label class="font-weight-bold" for="assignedto">Assigned To (Optional)</label>
-        <select class="form-control" v-model="form.assigned_to">
-          <option v-for="staff in staffs" :key="staff.id">{{ staff.fullName }}</option>          
+        <select class="form-control" v-model="form.userId">
+          <option v-for="staff in staffs" :key="staff.id" :value="staff.id">{{ staff.fullName }}</option>          
         </select>
       </div>
 
@@ -58,24 +58,38 @@
 </template>
 
 <script>
-import { saveTasks } from '@/api/task.service';
+import * as taskService from '@/api/task.service';
 import { mapState } from 'vuex';
 export default {
   data: () => ({
     form: {
-        customer: '',
+        customerId: '',
         task: '',
         priority: '',
         registered_on: '',
         deadline: '',
-        assigned_to: '',
+        userId: '',
         possible_solution: ''
     },
     priorities: [1, 2, 3, 4, 5]
   }),
   methods: {
     saveTask() {
-      saveTasks(this.form);
+      taskService.saveTasks(this.form).then(
+        res => {
+          alert("New Task saved");
+          this.form.customerId = "";
+          this.form.task= '';
+          this.form.priority= '';
+          this.form.registered_on= '';
+          this.form.deadline= '';
+          this.form.userId= '';
+          this.form.possible_solution= "";
+          },
+        err => {
+          alert("Something went wrong");
+        }
+      );
     },
   },
   computed: mapState({
