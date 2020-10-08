@@ -1,6 +1,6 @@
 export const loginUser = function (user) {
     return new Promise((resolve, reject) => {
-       fetch('http://abc.com/users/authenticate',{
+       fetch(`${process.env.VUE_APP_SERVER_URL}/auth/login`,{
            method: 'POST',
            body: JSON.stringify(user)
        }).then(res => {

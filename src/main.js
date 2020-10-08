@@ -4,9 +4,11 @@ import router from './router'
 import store from './store'
 import { initAppCore } from './core/app';
 import { configureFakeBackend } from './_helpers/fake-backend';
+import { initNotification } from './NotificationExtension.js';
 
 Vue.config.productionTip = false
 initAppCore();
+initNotification();
 // configureFakeBackend();
 
 // create new app v1.0.0

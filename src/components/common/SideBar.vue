@@ -10,6 +10,9 @@
         </template>
       </div>
     </div>
+    <div>
+      <a class="side-nav-link cursor-point" @click="logout()">Logout</a>
+    </div>
   </div>
 </template>
 
@@ -52,7 +55,7 @@ export default {
         ],
       },
       { id: 5, title: "Customers", url: "/customers", hasChild: false },
-      { id: 6, title: "Billing", url: "/billings", hasChild: false },
+      { id: 6, title: "Billing", url: "/billings", hasChild: false },      
     ],
   }),
   computed: {
@@ -67,6 +70,12 @@ export default {
         : (this.menuOpened = menu.id);
       if (!menu.hasChild) this.$router.push(menu.url);
     },
+
+    logout()
+    {
+      localStorage.removeItem('user');
+      location.reload();
+    }
   },
 };
 </script>
@@ -107,5 +116,8 @@ export default {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+.cursor-point {
+  cursor: pointer;
 }
 </style>
