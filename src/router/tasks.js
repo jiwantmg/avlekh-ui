@@ -4,7 +4,7 @@ export const tasksRouting = [
         name: 'Tasks',
         component: () => import('../views/tasks'),
         meta: {
-            roles: ["admin", "staff"],
+            roles: ["admin"],
             isPublic: false
         }
     },
@@ -13,7 +13,7 @@ export const tasksRouting = [
         name: 'Task Register',
         component: () => import('../views/tasks/register'),
         meta: {
-            roles: ["admin", "staff"],
+            roles: ["admin"],
             isPublic: false
         }
     },

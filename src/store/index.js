@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import * as userService from '@/api/user.service';
 import router from '../router';
 import tasks from './modules/tasks';
+import mytasks from './modules/mytasks';
 import dashboard from './modules/dashboard';
 import absent from './modules/absent';
 import customers from './modules/customers';
@@ -35,10 +36,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    loginAsync({ commit }, user) {   
-      console.log("dsfsd"); 
+    loginAsync({ commit }, user) {         
       userService.loginUser(user).then(
-        success => {          
+        success => {  
+          console.log("User Object ",success);
+          localStorage.setItem("user", JSON.stringify(success)); 
           commit('setLogin', user);
           router.push('/');
         },
@@ -53,6 +55,7 @@ export default new Vuex.Store({
     dashboard,
     absent,
     customers,
-    staffs
+    staffs,
+    mytasks
   }
 })

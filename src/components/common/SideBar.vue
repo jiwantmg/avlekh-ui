@@ -20,19 +20,7 @@
 export default {
   data: () => ({
     menuOpened: 0,
-    sidemenus: [
-      {
-        id: 1,
-        title: "Dashboard",
-        url: "/",
-        hasChild: false,
-      },
-      {
-        id: 2,
-        title: "My Tasks",
-        url: "/mytasks",
-        hasChild: false,
-      },
+    admin_menus: [
       {
         id: 3,
         title: "Tasks",
@@ -55,13 +43,40 @@ export default {
         ],
       },
       { id: 5, title: "Customers", url: "/customers", hasChild: false },
-      { id: 6, title: "Billing", url: "/billings", hasChild: false },      
+      { id: 6, title: "Billing", url: "/billings", hasChild: false },    
+    ],
+    sidemenus: [
+      {
+        id: 1,
+        title: "Dashboard",
+        url: "/",
+        hasChild: false,
+      }        
     ],
   }),
   computed: {
     isDrawerOpen() {
       return this.$store.state.isDrawerOpen;
     },
+  },  
+  mounted() 
+  {
+    if(this.$store.state.auth.user.role == "staff")
+    {      
+      console.log("User Role ",this.$store.state.auth.user.role);
+      this.sidemenus.splice(1,0, {
+        id: 2,
+        title: "My Tasks",
+        url: "/mytasks",
+        hasChild: false,
+      });
+    }
+
+     if(this.$store.state.auth.user.role == "admin")
+    {      
+      console.log("User Role ",this.$store.state.auth.user.role);
+      this.sidemenus = [...this.sidemenus, ...this.admin_menus];
+    }
   },
   methods: {
     menuClicked(menu) {

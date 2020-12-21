@@ -26,3 +26,18 @@ export const getAllTasksAsync = function() {
         );
     });
 }
+
+export const getAllMyTasksAsync = function(){
+    return new Promise((resolve, reject) => {
+        fetch(`${process.env.VUE_APP_SERVER_URL}/mytasks`, {
+            method: 'GET',            
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
+            },
+        }).then(
+            res => resolve(res.json())
+        );
+    });
+};
