@@ -12,7 +12,7 @@
     "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mini-toastr": "^0.8.1",
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.0",
